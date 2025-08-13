@@ -1,69 +1,60 @@
-body {
-    color: #141414;
-    font-family: Arial, sans-serif;
-    padding: 10px;
+* { 
+  box-sizing: border-box; 
+  margin:0; 
+  padding:0; 
 }
-.page-contenu {
-  max-width: 844px;
+
+body { 
+  color:#141414; 
+  font-family:Arial, sans-serif; 
+  padding:10px; 
+  background:#f8f9fa;
+}
+
+.logo { 
+  max-width:80px; 
+  height:80px; 
+}
+
+.page-contenu { 
+  max-width: 844px; 
   margin: 0 auto; 
 }
-.header {
-  background-color: #6A7A7D;
-  height: 122px;
-}
-.meilleurFilm  {
-    /* border: 2px solid #000; */
-    width: 100%;
-    height: 369px;
-    margin-bottom: 60px;
+
+.header { 
+  background:#6A7A7D; 
+  height:122px; 
 }
 
-.mieuxNotes, .mystery, .categories, .autres {
-    /* background-color: gray; */
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-    align-items: center;
-    justify-items: center;  
-    max-width: 100%;
-    margin: 0 auto;
+.meilleurFilm .row { 
+  height:100%; 
+  align-items:stretch; 
 }
-.notes {
-    background-color: #096879;
-    color: #fff;
-    border: 1px solid #ddd;
-    width: 100%;
-    max-width: 250px;
-    height: 252px;
-    border-radius: 10px;
+.titreFilm { 
+  width:100%; 
+  height:100%; 
+  object-fit:cover; 
+  display:block; 
 }
-img {
-  max-width: 80px;
-  height: 80px;
+/* Mobile : on n’affiche que les 2 premières cartes */
+
+@media (max-width:576px){
+  h1 { 
+    display:none; 
+  }
+  .logo { 
+    margin:auto; 
+  }
+  .films .col:nth-child(n+3) {
+  display: none;
+}
 }
 
-@media (max-width: 768px) {
-  .mieuxNotes,
-  .meilleurFilm,
-  .mystery,
-  .categories,
-  .autres {
-    grid-template-columns: 1fr 1fr;
-  }
+@media (max-width:768px){
+  .films .col:nth-child(n+5) {
+  display: none;
+}
 }
 
-@media (max-width: 576px) {
-  h1 {
-    display:none;
-  }
-  img{
-    margin: auto;
-  }
-  .mieuxNotes,
-  .meilleurFilm,
-  .mystery,
-  .categories,
-  .autres {
-    grid-template-columns: 1fr;
-  }
-}
+.films.show-all .col { display: block !important; }
+
