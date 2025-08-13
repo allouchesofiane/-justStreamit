@@ -36,7 +36,6 @@ body {
   object-fit:cover; 
   display:block; 
 }
-/* Mobile : on n’affiche que les 2 premières cartes */
 
 @media (max-width:576px){
   h1 { 
@@ -56,5 +55,7 @@ body {
 }
 }
 
-.films.show-all .col { display: block !important; }
+.films.show-all .col { 
+  display: block; 
+}
 
