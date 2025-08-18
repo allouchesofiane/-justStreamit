@@ -1,61 +1,159 @@
-* { 
-  box-sizing: border-box; 
-  margin:0; 
-  padding:0; 
-}
+* {
+            box-sizing: border-box;
+            margin: 0;
+        }
 
-body { 
-  color:#141414; 
-  font-family:Arial, sans-serif; 
-  padding:10px; 
-  background:#f8f9fa;
-}
+        body {
+            color: #141414;
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            background: #f8f9fa;
+        }
 
-.logo { 
-  max-width:80px; 
-  height:80px; 
-}
+        .logo {
+            max-width: 80px;
+            height: 80px;
+        }
 
-.page-contenu { 
-  max-width: 844px; 
-  margin: 0 auto; 
-}
+        .page-contenu {
+            max-width: 844px;
+            margin: 0 auto;
+        }
 
-.header { 
-  background:#6A7A7D; 
-  height:122px; 
-}
+        .header {
+            background: #6A7A7D;
+            height: 122px;
+        }
 
-.meilleurFilm .row { 
-  height:100%; 
-  align-items:stretch; 
-}
-.titreFilm { 
-  width:100%; 
-  height:100%; 
-  object-fit:cover; 
-  display:block; 
-}
+        .meilleurFilm .row {
+            height: 100%;
+        }
 
-@media (max-width:576px){
-  h1 { 
-    display:none; 
-  }
-  .logo { 
-    margin:auto; 
-  }
-  .films .col:nth-child(n+3) {
-  display: none;
-}
-}
+        .titreFilm {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
 
-@media (max-width:768px){
-  .films .col:nth-child(n+5) {
-  display: none;
-}
-}
+        /* Grille des films */
+        .films {
+            display: grid;
+            gap: 1rem;
+        }
 
-.films.show-all .col { 
-  display: block; 
-}
+        /* Desktop: 6 films visibles */
+        @media (min-width: 992px) {
+            .films {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .voir-plus {
+              display:none;
+            }
+        }
 
+        /* Tablettes: 4 films visibles, 2 cachés */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .films {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .films .film:nth-child(n+5) {
+                display: none;
+            }
+            .films.show-all .film:nth-child(n+5) {
+                display: block;
+            }
+        }
+
+        /* Mobile: 2 films visibles, 4 cachés */
+        @media (max-width: 767px) {
+            .films {
+                grid-template-columns: repeat(1, 1fr);
+            }
+            .films .film:nth-child(n+3) {
+                display: none;
+            }
+            .films.show-all .film:nth-child(n+3) {
+                display: block;
+            }
+            
+            h1 {
+                display: none;
+            }
+            .logo {
+                margin: auto;
+            }
+            
+            .modal-body {
+                display: flex;
+                flex-direction: column;
+            }
+            .modal-body .col-md-8 {
+                order: 1;
+            }
+            .modal-body .col-md-4 {
+                order: 2;
+                margin: 10px 0;
+            }
+            .modal-body .acteurs {
+                order: 3;
+            }
+        }
+
+        .films img {
+            min-height: 400px;
+            object-fit: cover;
+            background: #e9ecef;
+            display: block;
+            width: 100%;
+        }
+
+        /* Centre le bouton en bas de la carte */
+        .films .card-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .films .card-body .btn {
+            margin-top: auto;
+            align-self: center;
+            display: inline-block;
+            width: auto !important;
+        }
+
+        /* Overlay titre + bouton sur l'image */
+        .films .card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .films .card .card-body {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 80px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+        }
+
+        .films .card .card-body h3 {
+            margin: 0;
+            font-size: 1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .films .card .card-body .btn {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+        }

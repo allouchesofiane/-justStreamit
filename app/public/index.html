@@ -12,12 +12,14 @@
 <body class="container">
     <div class="page-contenu">
         <header class="my-3">
-            <div id="monEntete" class=" header d-flex justfie-content-center align-items-center p-4 text-white rounded">
-                <img src="../src/images/logo.png" alt="logo du site" class="logo">
-                <h1 class ="display-3 p-4">Vidéos à la demande</h1>
+            <div id="monEntete" class="header d-flex justify-content-center align-items-center p-4 text-white rounded">
+                <img src="./images/Logo.png" alt="logo du site" class="logo">
+                <h1 class="display-3 p-4">Vidéos à la demande</h1>
             </div>
         </header>
+
         <main>
+            <!-- Meilleur film -->
             <section class="my-4">
                 <h2 class="display-6 p-3 fw-bold">Meilleur film</h2>
                 <div id="meilleurFilm" class="meilleurFilm card mb-3">
@@ -43,192 +45,164 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Films les mieux notés -->
             <section class="my-4">
                 <h2 class="display-6 p-3 fw-bold">Films les mieux notés</h2>
-                <div id = "mieux-notes" class="row films">
-                    <div class=" col col-12 col-sm-6 col-md-4">
-                        <article class="card h-100">
-                            <img src="https://picsum.photos/200/300" alt="Affiche du film">
-                            <div class="card-body">
-                                <h3>Titre</h3>
-                                <button class="btn btn-danger btn-sm">Détails</button>
-                            </div>
-                        </article>
-                    </div>
-                        <div class="col col-12 col-sm-6 col-md-4">
-                            <article class="card h-100">
-                                <img src="https://picsum.photos/200/300?1" alt="Affiche du film">
-                                <div class="card-body">
-                                    <h3>Titre</h3>
-                                    <button class="btn btn-danger btn-sm">Détails</button>
-                                </div>
-                            </article>
+                <div id="mieux-notes" class="films">
+                    <article class="film card">
+                        <img src="https://picsum.photos/200/300" alt="Affiche du film">
+                        <div class="card-body d-flex flex-column">
+                            <h3>Titre</h3>
+                            <button class="btn btn-danger btn-sm mt-auto">Détails</button>
                         </div>
-                    <div class="col col-12 col-sm-6 col-md-4">
-                        <article class="card h-100">
-                            <img src="https://picsum.photos/200/300?2"  alt="Affiche du film">
-                            <div class="card-body">
-                                <h3>Titre</h3>
-                                <button class="btn btn-danger btn-sm">Détails</button>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col col-12 col-sm-6 col-md-4">
-                        <article class="card h-100">
-                            <img src="https://picsum.photos/200/300" alt="Affiche du film">
-                            <div class="card-body">
-                                <h3>Titre</h3>
-                                <button class="btn btn-danger btn-sm">Détails</button>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col col-12 col-sm-6 col-md-4">
-                        <article class="card h-100">
-                            <img src="https://picsum.photos/200/300" alt="Affiche du film">
-                            <div class="card-body">
-                                <h3>Titre</h3>
-                                <button class="btn btn-danger btn-sm">Détails</button>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col col-12 col-sm-6 col-md-4">
-                        <article class="card h-100">
-                            <img src="https://picsum.photos/200/300" alt="Affiche du film">
-                            <div class="card-body">
-                                <h3>Titre</h3>
-                                <button class="btn btn-danger btn-sm">Détails</button>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="mt-3">
-                        <button class="btn btn-secondary voir-plus" data-target="mieux-notes">Voir plus</button>
-                    </div>
+                    </article>
+                    <article class="film card">
+                        <img src="https://picsum.photos/200/300?1" alt="Affiche du film">
+                        <div class="card-body d-flex flex-column">
+                            <h3>Titre</h3>
+                            <button class="btn btn-danger btn-sm mt-auto">Détails</button>
+                        </div>
+                    </article>
+                    <article class="film card">
+                        <img src="https://picsum.photos/200/300?2" alt="Affiche du film">
+                        <div class="card-body d-flex flex-column">
+                            <h3>Titre</h3>
+                            <button class="btn btn-danger btn-sm mt-auto">Détails</button>
+                        </div>
+                    </article>
+                    <article class="film card">
+                        <img src="https://picsum.photos/200/300?3" alt="Affiche du film">
+                        <div class="card-body d-flex flex-column">
+                            <h3>Titre</h3>
+                            <button class="btn btn-danger btn-sm mt-auto">Détails</button>
+                        </div>
+                    </article>
+                    <article class="film card">
+                        <img src="https://picsum.photos/200/300?4" alt="Affiche du film">
+                        <div class="card-body d-flex flex-column">
+                            <h3>Titre</h3>
+                            <button class="btn btn-danger btn-sm mt-auto">Détails</button>
+                        </div>
+                    </article>
+                    <article class="film card">
+                        <img src="https://picsum.photos/200/300?5" alt="Affiche du film">
+                        <div class="card-body d-flex flex-column">
+                            <h3>Titre</h3>
+                            <button class="btn btn-danger btn-sm mt-auto">Détails</button>
+                        </div>
+                    </article>
+                </div>
+                <div class="mt-3">
+                    <button class="btn btn-secondary voir-plus" data-target="mieux-notes">Voir plus</button>
                 </div>
             </section>
+
+            <!-- Mystery -->
             <section class="my-4">
                 <h2 class="display-6 p-3 fw-bold">Mystery</h2>
-                <div  id="mystery" class="row films">
-                    <div class="col col-12 col-sm-6 col-md-4">
-                        <article class="card h-100">
-                            <img src="https://picsum.photos/200/300" alt="Affiche du film">
-                            <div class="card-body">
-                                <h3>Titre</h3>
-                                <button class="btn btn-danger btn-sm">Détails</button>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col col-12 col-sm-6 col-md-4">
-                        <article class="card h-100">
-                            <img src="https://picsum.photos/200/300?1" alt="Affiche du film">
-                            <div class="card-body">
-                                <h3>Titre</h3>
-                                <button class="btn btn-danger btn-sm">Détails</button>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col col-12 col-sm-6 col-md-4">
-                        <article class="card h-100">
-                            <img src="https://picsum.photos/200/300?2"  alt="Affiche du film">
-                            <div class="card-body">
-                                <h3>Titre</h3>
-                                <button class="btn btn-danger btn-sm">Détails</button>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col col-12 col-sm-6 col-md-4">
-                        <article class="card h-100">
-                            <img src="https://picsum.photos/200/300" alt="Affiche du film">
-                            <div class="card-body">
-                                <h3>Titre</h3>
-                                <button class="btn btn-danger btn-sm">Détails</button>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col col-12 col-sm-6 col-md-4">
-                        <article class="card h-100">
-                            <img src="https://picsum.photos/200/300" alt="Affiche du film">
-                            <div class="card-body">
-                                <h3>Titre</h3>
-                                <button class="btn btn-danger btn-sm">Détails</button>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col col-12 col-sm-6 col-md-4">
-                        <article class="card h-100">
-                            <img src="https://picsum.photos/200/300" alt="Affiche du film">
-                            <div class="card-body">
-                                <h3>Titre</h3>
-                                <button class="btn btn-danger btn-sm">Détails</button>
-                            </div>
-                        </article>
-                    </div>
+                <div id="mystery" class="films">
+                    <article class="film card">
+                        <img src="https://picsum.photos/200/300?11" alt="Affiche du film">
+                        <div class="card-body d-flex flex-column">
+                            <h3>Titre</h3>
+                            <button class="btn btn-danger btn-sm mt-auto">Détails</button>
+                        </div>
+                    </article>
+                    <article class="film card">
+                        <img src="https://picsum.photos/200/300?12" alt="Affiche du film">
+                        <div class="card-body d-flex flex-column">
+                            <h3>Titre</h3>
+                            <button class="btn btn-danger btn-sm mt-auto">Détails</button>
+                        </div>
+                    </article>
+                    <article class="film card">
+                        <img src="https://picsum.photos/200/300?13" alt="Affiche du film">
+                        <div class="card-body d-flex flex-column">
+                            <h3>Titre</h3>
+                            <button class="btn btn-danger btn-sm mt-auto">Détails</button>
+                        </div>
+                    </article>
+                    <article class="film card">
+                        <img src="https://picsum.photos/200/300?14" alt="Affiche du film">
+                        <div class="card-body d-flex flex-column">
+                            <h3>Titre</h3>
+                            <button class="btn btn-danger btn-sm mt-auto">Détails</button>
+                        </div>
+                    </article>
+                    <article class="film card">
+                        <img src="https://picsum.photos/200/300?15" alt="Affiche du film">
+                        <div class="card-body d-flex flex-column">
+                            <h3>Titre</h3>
+                            <button class="btn btn-danger btn-sm mt-auto">Détails</button>
+                        </div>
+                    </article>
+                    <article class="film card">
+                        <img src="https://picsum.photos/200/300?16" alt="Affiche du film">
+                        <div class="card-body d-flex flex-column">
+                            <h3>Titre</h3>
+                            <button class="btn btn-danger btn-sm mt-auto">Détails</button>
+                        </div>
+                    </article>
                 </div>
-                    <div class="mt-3">
-                        <button class="btn btn-secondary voir-plus " data-target="mystery">Voir plus</button>
-                    </div>
+                <div class="mt-3">
+                    <button class="btn btn-secondary voir-plus" data-target="mystery">Voir plus</button>
+                </div>
             </section>
+
+            <!-- Action -->
             <section class="my-4">
                 <h2 class="display-6 p-3 fw-bold">Action</h2>
-                <div id="categories" class="row films">
-                    <div class="col col-12 col-sm-6 col-md-4">
-                        <article class="card h-100">
-                            <img src="https://picsum.photos/200/300" alt="Affiche du film">
-                            <div class="card-body">
-                                <h3>Titre</h3>
-                                <button class="btn btn-danger btn-sm">Détails</button>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col col-12 col-sm-6 col-md-4">
-                        <article class="card h-100">
-                            <img src="https://picsum.photos/200/300?1" alt="Affiche du film">
-                            <div class="card-body">
-                                <h3>Titre</h3>
-                                <button class="btn btn-danger btn-sm">Détails</button>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col col-12 col-sm-6 col-md-4">
-                        <article class="card h-100">
-                            <img src="https://picsum.photos/200/300?2"  alt="Affiche du film">
-                            <div class="card-body">
-                                <h3>Titre</h3>
-                                <button class="btn btn-danger btn-sm">Détails</button>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col col-12 col-sm-6 col-md-4">
-                        <article class="card h-100">
-                            <img src="https://picsum.photos/200/300" alt="Affiche du film">
-                            <div class="card-body">
-                                <h3>Titre</h3>
-                                <button class="btn btn-danger btn-sm">Détails</button>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col col-12 col-sm-6 col-md-4">
-                        <article class="card h-100">
-                            <img src="https://picsum.photos/200/300" alt="Affiche du film">
-                            <div class="card-body">
-                                <h3>Titre</h3>
-                                <button class="btn btn-danger btn-sm">Détails</button>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col col-12 col-sm-6 col-md-4">
-                        <article class="card h-100">
-                            <img src="https://picsum.photos/200/300" alt="Affiche du film">
-                            <div class="card-body">
-                                <h3>Titre</h3>
-                                <button class="btn btn-danger btn-sm">Détails</button>
-                            </div>
-                        </article>
-                    </div>
+                <div id="categories" class="films">
+                    <article class="film card">
+                        <img src="https://picsum.photos/200/300?21" alt="Affiche du film">
+                        <div class="card-body d-flex flex-column">
+                            <h3>Titre</h3>
+                            <button class="btn btn-danger btn-sm mt-auto">Détails</button>
+                        </div>
+                    </article>
+                    <article class="film card">
+                        <img src="https://picsum.photos/200/300?22" alt="Affiche du film">
+                        <div class="card-body d-flex flex-column">
+                            <h3>Titre</h3>
+                            <button class="btn btn-danger btn-sm mt-auto">Détails</button>
+                        </div>
+                    </article>
+                    <article class="film card">
+                        <img src="https://picsum.photos/200/300?23" alt="Affiche du film">
+                        <div class="card-body d-flex flex-column">
+                            <h3>Titre</h3>
+                            <button class="btn btn-danger btn-sm mt-auto">Détails</button>
+                        </div>
+                    </article>
+                    <article class="film card">
+                        <img src="https://picsum.photos/200/300?24" alt="Affiche du film">
+                        <div class="card-body d-flex flex-column">
+                            <h3>Titre</h3>
+                            <button class="btn btn-danger btn-sm mt-auto">Détails</button>
+                        </div>
+                    </article>
+                    <article class="film card">
+                        <img src="https://picsum.photos/200/300?25" alt="Affiche du film">
+                        <div class="card-body d-flex flex-column">
+                            <h3>Titre</h3>
+                            <button class="btn btn-danger btn-sm mt-auto">Détails</button>
+                        </div>
+                    </article>
+                    <article class="film card">
+                        <img src="https://picsum.photos/200/300?26" alt="Affiche du film">
+                        <div class="card-body d-flex flex-column">
+                            <h3>Titre</h3>
+                            <button class="btn btn-danger btn-sm mt-auto">Détails</button>
+                        </div>
+                    </article>
                 </div>
                 <div class="mt-3">
                     <button class="btn btn-secondary voir-plus" data-target="categories">Voir plus</button>
                 </div>
             </section>
+
+            <!-- Autres -->
             <section class="my-4">
                 <h2 class="display-6 p-3 fw-bold">Autres</h2>
                 <div class="mb-3">
@@ -237,96 +211,96 @@
                         <option value="">Sélectionner un genre</option>
                         <option value="Action">Films d'action</option>
                         <option value="Comedy">Comédies</option>
-                        <option value="Family">Familles</option>
+                        <option value="Family" selected>Familles</option>
                         <option value="Fantasy">Films de fantasy</option>
                         <option value="Horror">Films d'horreur</option>
                         <option value="Sci-Fi">Science-fiction</option>
                         <option value="Western">Western</option>
                     </select>
                 </div>
-                <div id="autres" class="row films">
-                    <div class="col col-12 col-sm-6 col-md-4">
-                        <article class="card h-100 d-flex flex-column">
-                            <img src="https://picsum.photos/200/300" alt="Affiche du film">
-                            <div class="card-body d-flex flex-column">
-                                <h3>Titre</h3>
-                                <button class="btn btn-danger btn-sm align-items-end">Détails</button>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col col-12 col-sm-6 col-md-4">
-                        <article class="card h-100">
-                            <img src="https://picsum.photos/200/300?1" alt="Affiche du film">
-                            <div class="card-body">
-                                <h3>Titre</h3>
-                                <button class="btn btn-danger btn-sm">Détails</button>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col col-12 col-sm-6 col-md-4">
-                        <article class="card h-100">
-                            <img src="https://picsum.photos/200/300?2"  alt="Affiche du film">
-                            <div class="card-body">
-                                <h3>Titre</h3>
-                                <button class="btn btn-danger btn-sm">Détails</button>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col col-12 col-sm-6 col-md-4">
-                        <article class="card h-100">
-                            <img src="https://picsum.photos/200/300" alt="Affiche du film">
-                            <div class="card-body">
-                                <h3>Titre</h3>
-                                <button class="btn btn-danger btn-sm">Détails</button>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col col-12 col-sm-6 col-md-4">
-                        <article class="card h-100">
-                            <img src="https://picsum.photos/200/300" alt="Affiche du film">
-                            <div class="card-body">
-                                <h3>Titre</h3>
-                                <button class="btn btn-danger btn-sm">Détails</button>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col col-12 col-sm-6 col-md-4">
-                        <article class="card h-100">
-                            <img src="https://picsum.photos/200/300" alt="Affiche du film">
-                            <div class="card-body">
-                                <h3>Titre</h3>
-                                <button class="btn btn-danger btn-sm">Détails</button>
-                            </div>
-                        </article>
-                    </div>
+                <div id="autres" class="films">
+                    <article class="film card">
+                        <img src="https://picsum.photos/200/300?31" alt="Affiche du film">
+                        <div class="card-body d-flex flex-column">
+                            <h3>Titre</h3>
+                            <button class="btn btn-danger btn-sm mt-auto">Détails</button>
+                        </div>
+                    </article>
+                    <article class="film card">
+                        <img src="https://picsum.photos/200/300?32" alt="Affiche du film">
+                        <div class="card-body d-flex flex-column">
+                            <h3>Titre</h3>
+                            <button class="btn btn-danger btn-sm mt-auto">Détails</button>
+                        </div>
+                    </article>
+                    <article class="film card">
+                        <img src="https://picsum.photos/200/300?33" alt="Affiche du film">
+                        <div class="card-body d-flex flex-column">
+                            <h3>Titre</h3>
+                            <button class="btn btn-danger btn-sm mt-auto">Détails</button>
+                        </div>
+                    </article>
+                    <article class="film card">
+                        <img src="https://picsum.photos/200/300?34" alt="Affiche du film">
+                        <div class="card-body d-flex flex-column">
+                            <h3>Titre</h3>
+                            <button class="btn btn-danger btn-sm mt-auto">Détails</button>
+                        </div>
+                    </article>
+                    <article class="film card">
+                        <img src="https://picsum.photos/200/300?35" alt="Affiche du film">
+                        <div class="card-body d-flex flex-column">
+                            <h3>Titre</h3>
+                            <button class="btn btn-danger btn-sm mt-auto">Détails</button>
+                        </div>
+                    </article>
+                    <article class="film card">
+                        <img src="https://picsum.photos/200/300?36" alt="Affiche du film">
+                        <div class="card-body d-flex flex-column">
+                            <h3>Titre</h3>
+                            <button class="btn btn-danger btn-sm mt-auto">Détails</button>
+                        </div>
+                    </article>
                 </div>
                 <div class="mt-3">
-                    <button class="btn btn-secondary voir-plus" data-target="autres" >Voir plus</button>
+                    <button class="btn btn-secondary voir-plus" data-target="autres">Voir plus</button>
                 </div>   
             </section>
         </main>
+
         <footer>
             <p class="text-center mt-4">© 2025 — Sofiane Allouche</p>
         </footer>
     </div>
+
     <!-- Modale Bootstrap -->
-    <div class="modal fade" id="filmModal" tabindex="-1">
-        <div class="modal-dialog">
+    <div class="modal fade" id="filmModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="filmModalTitle">Titre du film</h5>
+                    <h5 id="filmModalTitle" class="modal-title">Titre du film</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body">
-                    <img src="https://picsum.photos/200/300" alt="Affiche du film" class="img-fluid modal-poster mb-3" id="filmModalImg">
-                    <p><strong>Note:</strong> <span id="filmModalRating">-</span>/10</p>
-                    <p><strong>Durée:</strong> <span id="filmModalDuration">-</span> min</p>
-                    <p><strong>Réalisateur:</strong> <span id="filmModalDirector">-</span></p>
-                    <p><strong>Description:</strong></p>
-                    <p id="filmModalDesc">Description du film...</p>
-                </div>
+                <div class="modal-body row">
+                    <div class="col-md-8 order-1 order-md-1">
+                        <p><strong id="filmModalGenres"></strong></p>
+                        <p id="filmModalMeta"></p>
+                        <p><strong>IMDB score:</strong> <span id="filmModalRating"></span></p>
+                        <p><strong>Recettes au box-office:</strong> <span id="filmModalBox"></span></p>
+                        <p><strong>Réalisé par:</strong> <span id="filmModalDirector"></span></p>
+                        <p id="filmModalDesc"></p>
+                    </div>
+                    <div class="col-md-4 text-center order-2 order-md-2">
+                        <img src="https://picsum.photos/200/300?36" id="filmModalImg" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-12 order-3">
+                        <p><strong>Avec:</strong> <span id="filmModalActors"></span></p>
+                    </div>
+                </div> 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-danger mx-auto" data-bs-dismiss="modal">
+                        Fermer
+                    </button>
                 </div>
             </div>
         </div>
