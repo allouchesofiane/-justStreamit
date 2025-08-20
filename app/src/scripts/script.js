@@ -1,77 +1,96 @@
+// Declaration de variables 
+const API_URL = "http://localhost:8000/api/v1/titles/";
+let filmModal;
+
+// Cette fonction gère l'affichage et le masquage des grilles.
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.voir-plus').forEach(button => {
-    button.addEventListener('click', () => {
-      const targetId = button.getAttribute('data-target');
-      const grid = document.getElementById(targetId);
+  try {
+    document.querySelectorAll('.voir-plus').forEach(button => {
+      button.addEventListener('click', () => {
+        const targetId = button.getAttribute('data-target');
+        const grid = document.getElementById(targetId);
 
-      // 1) Ajoute/retire la classe .show-all sur la grille
-      grid.classList.toggle('show-all');
-
-      // 2) Met à jour du bouton
-      button.textContent = grid.classList.contains('show-all')
-        ? 'Voir moins'
-        : 'Voir plus';
+        if (grid) {
+          grid.classList.toggle('show-all');
+          button.textContent = grid.classList.contains('show-all')
+            ? 'Voir moins'
+            : 'Voir plus';
+        }
+      });
     });
-  });
+  } catch (error) {
+    console.error('Une erreur est survenue :', error);
+  }
 });
 
+// Cette fonction affiche le meilleur film 
 async function chargerMeilleurFilm() {
-  // Meilleur film 
-  const res = await fetch("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score&page_size=1");
-  const data = await res.json();
-  const meilleurFilm = data.results[0];
+  try {
+    // Meilleur film 
+    const res = await fetch(`${API_URL}?sort_by=-imdb_score&page_size=1`);
+    const data = await res.json();
+    const meilleurFilm = data.results[0];
 
-  // Détails du film 
-  const response = await fetch(`http://localhost:8000/api/v1/titles/1508669`).then(r => r.json());
-
-  const card = document.getElementById("meilleurFilm");
-  const img = card.querySelector("img.titreFilm");
-  img.src = meilleurFilm.image_url;
-  img.alt = `Affiche : ${meilleurFilm.title}`;
-  card.querySelector(".card-title").textContent = meilleurFilm.title;
-  card.querySelector(".card-text").textContent = response.description;
-  const btn = card.querySelector("button.btn");
-    if (btn) {
-      btn.classList.add("btn-details", "btn-sm");   
-      btn.setAttribute("data-film-id", meilleurFilm.id);
-    }
-}
-document.addEventListener("DOMContentLoaded", chargerMeilleurFilm);
-
-async function chargerFilmsMieuxNotes() {
-  const res = await fetch("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score&page_size=6");
-  const data = await res.json();
-
-  const grid = document.getElementById("mieux-notes");
-  const cards = grid.querySelectorAll(".card");
-
-  data.results.forEach((film, index) => {
-    if (!cards[index]) return;
-
-    const card = cards[index];
-
-    const img = card.querySelector("img");
-  if (img) {
+    // Détails du film 
+    const response = await fetch(`${API_URL}${meilleurFilm.id}`);
+    const dataMeilleurFilm = await response.json()
+    const card = document.getElementById("meilleurFilm");
+    const img = card.querySelector("img.titreFilm");
+    if (img) {
     img.onerror = () => { img.src = "./images/image-indisponible.png"; };
-    img.src = film.image_url || "./images/image-indisponible.png";
-    img.alt = `Affiche : ${film.title}`;
+    img.src = meilleurFilm.image_url || "./images/image-indisponible.png";
+    img.alt = `Affiche : ${meilleurFilm.title}`;
   }
-    const h3 = card.querySelector("h3");
-    if (h3) h3.textContent = film.title;
+    card.querySelector(".card-title").textContent = meilleurFilm.title;
+    card.querySelector(".card-text").textContent = dataMeilleurFilm.long_description;
 
-    // pour la modale
     const btn = card.querySelector("button.btn");
     if (btn) {
-      btn.classList.add("btn-details");
-      // pour ouvrirModal(filmId)
-      btn.setAttribute("data-film-id", film.id); 
+      btn.classList.add("btn-details", "btn-sm");
+      btn.setAttribute("data-film-id", meilleurFilm.id);
     }
-  });
+  } catch (error) {
+    console.error("Erreur lors du chargement du meilleur film :", error);
+  }
 }
-document.addEventListener("DOMContentLoaded", chargerFilmsMieuxNotes);
+// Cette fonction affiche les films les mieux notés 
+async function chargerFilmsMieuxNotes() {
+  try {
+    const res = await fetch(`${API_URL}?sort_by=-imdb_score&page_size=6`);
+    const data = await res.json();
 
+    const grid = document.getElementById("mieux-notes");
+    const cards = grid.querySelectorAll(".card");
+
+    data.results.forEach((film, index) => {
+      if (!cards[index]) return;
+
+      const card = cards[index];
+
+      const img = card.querySelector("img");
+      if (img) {
+        img.onerror = () => { img.src = "./images/image-indisponible.png"; };
+        img.src = film.image_url || "./images/image-indisponible.png";
+        img.alt = `Affiche : ${film.title}`;
+      }
+
+      const h3 = card.querySelector("h3");
+      if (h3) h3.textContent = film.title;
+
+      const btn = card.querySelector("button.btn");
+      if (btn) {
+        btn.classList.add("btn-details");
+        btn.setAttribute("data-film-id", film.id);
+      }
+    });
+  } catch (error) {
+    console.error("Erreur lors du chargement des films mieux notés :", error);
+  }
+}
+
+// Cette fonction affiche les films mystery les mieux notés
 async function chargerFilmsMystery() {
-  const res = await fetch("http://localhost:8000/api/v1/titles/?genre=Mystery&sort_by=-imdb_score&page_size=6");
+  const res = await fetch(`${API_URL}?genre=Mystery&sort_by=-imdb_score&page_size=6`);
   const data = await res.json();
 
   const grid = document.getElementById("mystery");
@@ -100,10 +119,9 @@ async function chargerFilmsMystery() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", chargerFilmsMystery);
-
+// Cette fonction affiche les films d'actions les mieux notés
 async function chargerFilmsAction() {
-  const res = await fetch("http://localhost:8000/api/v1/titles/?genre=Action&sort_by=-imdb_score&page_size=6");
+  const res = await fetch(`${API_URL}?genre=Action&sort_by=-imdb_score&page_size=6`);
   const data = await res.json();
 
   const grid = document.getElementById("categories");
@@ -132,13 +150,12 @@ async function chargerFilmsAction() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", chargerFilmsAction);
-
+// Cette fonction affiche les films en fonction du genre
 async function chargerAutresFilms(genre) {
   if (!genre) return; 
 
   // Récupère les 6 films de la catégorie choisie
-  const res = await fetch(`http://localhost:8000/api/v1/titles/?genre=${genre}&sort_by=-imdb_score&page_size=6`);
+  const res = await fetch(`${API_URL}?genre=${genre}&sort_by=-imdb_score&page_size=6`);
   const data = await res.json();
 
   // Sélection de l'élément
@@ -167,21 +184,7 @@ async function chargerAutresFilms(genre) {
   });
 }
 
-// Écouteur sur le menu déroulant
-document.querySelector('select[name="autres"]').addEventListener("change", (e) => {
-  chargerAutresFilms(e.target.value);
-});
-
-// Charger par défaut la catégorie Family au démarrage
-document.addEventListener("DOMContentLoaded", () => {
-  chargerAutresFilms("Family");
-});
-
-
 // Modal
-const API_URL = "http://localhost:8000/api/v1/titles/";
-let filmModal;
-
 document.addEventListener("DOMContentLoaded", () => {
   filmModal = new bootstrap.Modal(document.getElementById("filmModal"));
 
@@ -283,4 +286,18 @@ function ouvrirModal(filmId) {
     });
 }
 
+// appel aux fonctions
+document.addEventListener("DOMContentLoaded", chargerMeilleurFilm);
+document.addEventListener("DOMContentLoaded", chargerFilmsMieuxNotes);
+document.addEventListener("DOMContentLoaded", chargerFilmsMystery);
+document.addEventListener("DOMContentLoaded", chargerFilmsAction);
 
+// Charger par défaut la catégorie Family au démarrage
+document.addEventListener("DOMContentLoaded", () => {
+  chargerAutresFilms("Family");
+});
+
+// Écouteur sur le menu déroulant
+document.querySelector('select[name="autres"]').addEventListener("change", (e) => {
+  chargerAutresFilms(e.target.value);
+});
